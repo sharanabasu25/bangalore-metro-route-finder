@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --bg: linear-gradient(135deg, #0f172a, #1e293b);
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.15);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #8b5cf6;
+  --warn: #facc15;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header p {
+  color: var(--muted);
+}
+
+.lines {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.badge-purple { background: rgba(139,92,246,0.2); }
+.badge-green  { background: rgba(34,197,94,0.2); }
+.badge-yellow { background: rgba(250,204,21,0.2); }
+.badge-pink   { background: rgba(236,72,153,0.2); }
+
+.card {
+  backdrop-filter: blur(14px);
+  background: var(--glass);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media(max-width:500px){
+  .selectors {
+    grid-template-columns: 1fr;
+  }
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 14px;
+}
+
+select option {
+  background: white;
+  color: black;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139,92,246,0.4);
+}
+
+.route-card {
+  margin-top: 12px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  transition: 0.2s;
+}
+
+.route-card:hover {
+  transform: scale(1.02);
+}
+
+.station-flow {
+  margin-top: 10px;
+}
+
+.st {
+  padding: 5px 10px;
+  background: white;
+  color: black; 
+  border-radius: 6px;
+  margin: 3px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+.st.interchange {
+  background: rgba(250,204,21,0.6);
+  color: black;
+  font-weight: 600;
+  border: 1px solid rgba(250,204,21,0.8);
+}
+
+
+.msg {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+}

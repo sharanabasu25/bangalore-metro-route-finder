@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangalore Metro Route Finder</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1> Bengaluru Metro</h1>
+  <p>Smart Route Finder</p>
+
+  <div class="lines">
+    <span class="badge badge-purple">Purple</span>
+    <span class="badge badge-green">Green</span>
+    <span class="badge badge-yellow">Yellow</span>
+    <span class="badge badge-pink">Pink</span>
+  </div>
+</header>
+
+<div class="card">
+  <div class="selectors">
+    <select id="src">
+      <option value="">Select Source</option>
+    </select>
+    <select id="dst">
+      <option value="">Select Destination</option>
+    </select>
+  </div>
+  <button class="btn" onclick="findRoutes()">Find Routes</button>
+</div>
+
+<div id="results"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
