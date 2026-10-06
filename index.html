@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangalore Metro Route Finder</title>
+<title>Bangalore Metro Route Finder – Graph Algorithms & AI Assistant</title>
 
+<!-- Modern Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -14,30 +17,91 @@
 <div class="container">
 
 <header>
-  <h1> Bengaluru Metro</h1>
-  <p>Smart Route Finder</p>
+  <h1>🚇 Bengaluru Metro</h1>
+  <p>Intelligent Route Finder with Graph Algorithms & Generative AI</p>
 
   <div class="lines">
-    <span class="badge badge-purple">Purple</span>
-    <span class="badge badge-green">Green</span>
-    <span class="badge badge-yellow">Yellow</span>
-    <span class="badge badge-pink">Pink</span>
+    <span class="badge badge-purple">Purple Line</span>
+    <span class="badge badge-green">Green Line</span>
+    <span class="badge badge-yellow">Yellow Line</span>
+    <span class="badge badge-pink">Pink Line</span>
   </div>
 </header>
 
+<!-- Route Selection Card -->
 <div class="card">
-  <div class="selectors">
-    <select id="src">
-      <option value="">Select Source</option>
-    </select>
-    <select id="dst">
-      <option value="">Select Destination</option>
-    </select>
+  <div class="selectors-wrapper">
+    <div class="selectors">
+      <div class="select-group">
+        <label for="src" class="input-label">Boarding Station (Source)</label>
+        <select id="src">
+          <option value="">Select Source Station</option>
+        </select>
+      </div>
+
+      <button type="button" class="swap-btn" id="swapBtn" title="Swap Source & Destination" onclick="swapStations()">
+        ⇄
+      </button>
+
+      <div class="select-group">
+        <label for="dst" class="input-label">Alighting Station (Destination)</label>
+        <select id="dst">
+          <option value="">Select Destination Station</option>
+        </select>
+      </div>
+    </div>
   </div>
-  <button class="btn" onclick="findRoutes()">Find Routes</button>
+
+  <!-- Algorithm Selector Option for College Viva & Demonstrations -->
+  <div class="algo-bar">
+    <span class="algo-label">Algorithm:</span>
+    <label class="algo-option">
+      <input type="radio" name="algorithm" value="dijkstra" checked>
+      <span>Dijkstra's (Shortest Time & Transfer Weighted)</span>
+    </label>
+    <label class="algo-option">
+      <input type="radio" name="algorithm" value="bfs">
+      <span>BFS (Fewest Station Stops)</span>
+    </label>
+  </div>
+
+  <button class="btn" id="findRouteBtn" onclick="findRoutes()">Find Routes</button>
 </div>
 
+<!-- Route Calculation Results -->
 <div id="results"></div>
+
+<!-- Generative AI Assistant Section -->
+<div class="card ai-card" id="aiCard">
+  <div class="ai-header">
+    <div class="ai-title-wrap">
+      <span class="ai-icon">🤖</span>
+      <div>
+        <h3>AI Metro Assistant</h3>
+        <p class="ai-subtitle">Powered by Graph Intelligence & Generative AI</p>
+      </div>
+    </div>
+    <span class="ai-status-badge" id="aiStatusBadge">Active</span>
+  </div>
+
+  <div class="ai-prompt-chips">
+    <button type="button" class="chip" onclick="setAiPrompt('Explain my metro route in detail.')">Explain my route</button>
+    <button type="button" class="chip" onclick="setAiPrompt('Which station should I change at?')">Which station to change?</button>
+    <button type="button" class="chip" onclick="setAiPrompt('What is the fare and travel advice for this route?')">Fare & Travel advice</button>
+  </div>
+
+  <div class="ai-input-row">
+    <input type="text" id="aiInput" placeholder="Ask about your metro route (e.g. 'How do I travel from Indiranagar to MG Road?')..." onkeydown="if(event.key==='Enter') askAI()">
+    <button class="btn-ai" id="askAiBtn" onclick="askAI()">Ask AI</button>
+  </div>
+
+  <div id="aiResponse" class="ai-response-box" style="display: none;"></div>
+</div>
+
+<!-- Footer / Academic Project Info -->
+<footer>
+  <p>Bangalore Metro Route Finder • Python Flask Backend • Graph Theory (Dijkstra & BFS) • Gemini AI</p>
+</footer>
 
 </div>
 
